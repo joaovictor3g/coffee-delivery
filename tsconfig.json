@@ -25,7 +25,8 @@
     "**/*.ts",
     "**/*.tsx",
     "cypress/home.spec.ts",
-    "cypress/home.spec.js"
+    "cypress/home.spec.js",
+    "coffees.js"
   ],
   "exclude": ["node_modules"]
 }

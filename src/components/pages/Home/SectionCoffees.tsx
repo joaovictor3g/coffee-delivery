@@ -1,7 +1,12 @@
+import { Coffee } from "@/@types";
 import { CoffeeBox } from "@/components/shared/CoffeeBox";
-import { Box, Flex, Heading, SimpleGrid } from "@chakra-ui/react";
+import { Box, Flex, Heading } from "@chakra-ui/react";
 
-export function SectionCoffees() {
+interface SectionCoffeesProps {
+  coffees: Coffee[];
+}
+
+export function SectionCoffees({ coffees }: SectionCoffeesProps) {
   return (
     <Box as="section">
       <Heading>Nossos cafés</Heading>
@@ -13,22 +18,9 @@ export function SectionCoffees() {
         w="100%"
         mt="50px"
       >
-        <CoffeeBox />
-        <CoffeeBox />
-        <CoffeeBox />
-        <CoffeeBox />
-        <CoffeeBox />
-        <CoffeeBox />
-        <CoffeeBox />
-        <CoffeeBox />
-        <CoffeeBox />
-        <CoffeeBox />
-        <CoffeeBox />
-        <CoffeeBox />
-        <CoffeeBox />
-        <CoffeeBox />
-        <CoffeeBox />
-        <CoffeeBox />
+        {coffees?.map((coffee) => (
+          <CoffeeBox key={coffee.id} coffee={coffee} />
+        ))}
       </Flex>
     </Box>
   );

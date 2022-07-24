@@ -1,3 +1,4 @@
+import { Coffee } from "@/@types";
 import {
   Box,
   Button,
@@ -13,7 +14,11 @@ import {
 import { ShoppingCart } from "phosphor-react";
 import { AmountInput } from "./AmountInput";
 
-export function CoffeeBox() {
+interface CoffeeBoxProps {
+  coffee: Coffee;
+}
+
+export function CoffeeBox({ coffee }: CoffeeBoxProps) {
   return (
     <VStack
       maxW="256px"
@@ -28,25 +33,28 @@ export function CoffeeBox() {
     >
       <Image src="/Coffee.svg" alt="Cafe expresso" mt="-40px" />
       <HStack spacing={1}>
-        <Box
-          bg="yellow.100"
-          fontSize="0.7rem"
-          fontWeight="700"
-          px={2}
-          borderRadius={8}
-        >
-          <Text color="yellow.300" textTransform="uppercase">
-            Tradicional
-          </Text>
-        </Box>
+        {coffee?.types.map((type) => (
+          <Box
+            key={type}
+            bg="yellow.100"
+            fontSize="0.7rem"
+            fontWeight="700"
+            px={2}
+            borderRadius={8}
+          >
+            <Text color="yellow.300" textTransform="uppercase">
+              {type}
+            </Text>
+          </Box>
+        ))}
       </HStack>
 
       <Box>
         <Heading fontWeight="700" fontSize="1.5rem">
-          Expresso Tradicional
+          {coffee?.name}
         </Heading>
         <Text color="gray.500" fontSize="0.875rem" textAlign="center">
-          O tradicional café feito com água quente e grãos moídos
+          {coffee?.description}
         </Text>
       </Box>
 
@@ -64,7 +72,7 @@ export function CoffeeBox() {
             fontSize="1.5rem"
             fontFamily={`"Baloo 2", sans-serif`}
           >
-            9,90
+            {String(coffee?.value)}
           </Text>
         </Box>
 
