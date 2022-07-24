@@ -11,8 +11,11 @@ import {
   Icon,
 } from "@chakra-ui/react";
 import { MapPinLine, CurrencyDollar } from "phosphor-react";
+import { useState } from "react";
 
 export function SectionForm() {
+  const [selectedPayment, setSelectedPayment] = useState("");
+
   return (
     <VStack as="section" maxW="640px" w="100%" spacing="15px" align="start">
       <Heading fontSize="1.125rem">Complete seu pedido</Heading>
@@ -88,13 +91,28 @@ export function SectionForm() {
         </Flex>
 
         <ButtonGroup w="100%" justifyContent="space-between">
-          <PaymentButton w="33%" paymentType="credit">
+          <PaymentButton
+            w="33%"
+            paymentType="credit"
+            onClick={() => setSelectedPayment("credit")}
+            active={selectedPayment === "credit"}
+          >
             Cartão de crédito
           </PaymentButton>
-          <PaymentButton w="33%" paymentType="debit">
+          <PaymentButton
+            w="33%"
+            paymentType="debit"
+            onClick={() => setSelectedPayment("debit")}
+            active={selectedPayment === "debit"}
+          >
             Cartão de débito
           </PaymentButton>
-          <PaymentButton w="33%" paymentType="money">
+          <PaymentButton
+            w="33%"
+            paymentType="money"
+            onClick={() => setSelectedPayment("money")}
+            active={selectedPayment === "money"}
+          >
             Dinheiro
           </PaymentButton>
         </ButtonGroup>

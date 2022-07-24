@@ -5,7 +5,11 @@ import NextLink from "next/link";
 export function Header() {
   return (
     <Flex w="100%" justify="space-between">
-      <Image src="/logo.svg" />
+      <NextLink href="/" passHref>
+        <Link>
+          <Image src="/logo.svg" />
+        </Link>
+      </NextLink>
 
       <ButtonGroup>
         <Button bg="purple.100" color="purple.300">

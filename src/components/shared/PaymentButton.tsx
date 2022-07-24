@@ -5,6 +5,7 @@ type PaymentType = "money" | "credit" | "debit";
 
 interface PaymentButtonProps extends ButtonProps {
   paymentType: PaymentType;
+  active?: boolean;
 }
 
 const icons: Record<
@@ -18,7 +19,11 @@ const icons: Record<
   debit: Bank,
 };
 
-export function PaymentButton({ paymentType, ...rest }: PaymentButtonProps) {
+export function PaymentButton({
+  active = false,
+  paymentType,
+  ...rest
+}: PaymentButtonProps) {
   const PaymentIcon = icons[paymentType];
 
   return (
@@ -34,6 +39,20 @@ export function PaymentButton({ paymentType, ...rest }: PaymentButtonProps) {
       display="flex"
       alignItems="center"
       gap="5px"
+      _hover={{
+        "&:not(:focus)": {
+          bg: "gray.400",
+        },
+      }}
+      sx={
+        active
+          ? {
+              bg: "purple.100",
+              borderWidth: "1px",
+              borderColor: "purple.200",
+            }
+          : {}
+      }
     >
       <Icon as={PaymentIcon} w="16px" h="16px" color="purple.200" m="0" />
       {rest.children}

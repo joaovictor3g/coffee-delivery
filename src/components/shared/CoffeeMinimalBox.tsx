@@ -27,7 +27,7 @@ export function CoffeeMinimalBox() {
           </Flex>
           <Flex align="center" gap="10px">
             <AmountInput />
-            <Button bg="gray.300">
+            <Button bg="gray.300" _hover={{ bg: "gray.400" }}>
               <Icon as={Trash} color="purple.200" w="16px" h="16px" />
               <Text fontSize="0.75rem" color="gray.500" fontWeight="400">
                 REMOVER

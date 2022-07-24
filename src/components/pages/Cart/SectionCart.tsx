@@ -53,6 +53,9 @@ export function SectionCart() {
           fontSize="0.875rem"
           fontWeight="700"
           textTransform="uppercase"
+          _hover={{
+            bg: "yellow.300",
+          }}
         >
           Confirmar pedido
         </Button>

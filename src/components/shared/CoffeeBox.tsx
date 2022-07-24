@@ -71,7 +71,12 @@ export function CoffeeBox() {
         <ButtonGroup>
           <AmountInput />
 
-          <Button bg="purple.300">
+          <Button
+            bg="purple.300"
+            _hover={{
+              bg: "purple.200",
+            }}
+          >
             <ShoppingCart weight="fill" color="white" size={30} />
           </Button>
         </ButtonGroup>
