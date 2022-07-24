@@ -25,7 +25,7 @@ export function CoffeeMinimalBox() {
               R$ 9,90
             </Text>
           </Flex>
-          <Flex align="center" gap="30px">
+          <Flex align="center" gap="10px">
             <AmountInput />
             <Button bg="gray.300">
               <Icon as={Trash} color="purple.200" w="16px" h="16px" />

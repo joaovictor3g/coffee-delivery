@@ -51,7 +51,13 @@ export function CoffeeBox() {
       </Box>
 
       <Flex justify="space-between" w="100%">
-        <Box display="flex" color="gray.600" alignItems="center" gap="2px">
+        <Box
+          display="flex"
+          color="gray.600"
+          alignItems="center"
+          gap="2px"
+          mr="2px"
+        >
           <Text>R$</Text>
           <Text
             fontWeight="800"
@@ -62,11 +68,11 @@ export function CoffeeBox() {
           </Text>
         </Box>
 
-        <ButtonGroup gap={5}>
+        <ButtonGroup>
           <AmountInput />
 
           <Button bg="purple.300">
-            <ShoppingCart weight="fill" color="white" size={20} />
+            <ShoppingCart weight="fill" color="white" size={30} />
           </Button>
         </ButtonGroup>
       </Flex>
