@@ -11,6 +11,7 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { ShoppingCart } from "phosphor-react";
+import { AmountInput } from "./AmountInput";
 
 export function CoffeeBox() {
   return (
@@ -62,15 +63,7 @@ export function CoffeeBox() {
         </Box>
 
         <ButtonGroup gap={5}>
-          <HStack bg="purple.100" borderRadius="6px" maxW="72px" w="100%">
-            <Button variant="unstyled" bg="inherit" color="purple.200">
-              {"-"}
-            </Button>
-            <Input variant="unstyled" value="1" color="black" />
-            <Button variant="unstyled" bg="inherit" color="purple.200">
-              {"+"}
-            </Button>
-          </HStack>
+          <AmountInput />
 
           <Button bg="purple.300">
             <ShoppingCart weight="fill" color="white" size={20} />

@@ -2,7 +2,7 @@ export const colors = Object.freeze({
   gray: {
     100: "#f3f2f2",
     200: "#ededed",
-    300: "#e6e5e4",
+    300: "#e6e5e5",
     400: "#d7d5d5",
     500: "#8d8686",
     600: "#574f4d",
