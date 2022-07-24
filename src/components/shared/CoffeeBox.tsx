@@ -1,4 +1,5 @@
 import { Coffee } from "@/@types";
+import { useCart } from "@/hooks/useCart";
 import {
   Box,
   Button,
@@ -7,11 +8,11 @@ import {
   Heading,
   HStack,
   Image,
-  Input,
   Text,
   VStack,
 } from "@chakra-ui/react";
 import { ShoppingCart } from "phosphor-react";
+import { useState } from "react";
 import { AmountInput } from "./AmountInput";
 
 interface CoffeeBoxProps {
@@ -19,6 +20,16 @@ interface CoffeeBoxProps {
 }
 
 export function CoffeeBox({ coffee }: CoffeeBoxProps) {
+  const { onAdd, data: cartData } = useCart();
+  const [amount, setAmount] = useState(
+    cartData.find((data) => data.id === coffee.id)?.amount ?? 0
+  );
+
+  const data = {
+    ...coffee,
+    amount,
+  };
+
   return (
     <VStack
       maxW="256px"
@@ -50,7 +61,7 @@ export function CoffeeBox({ coffee }: CoffeeBoxProps) {
       </HStack>
 
       <Box>
-        <Heading fontWeight="700" fontSize="1.5rem">
+        <Heading fontWeight="700" fontSize="1.5rem" textAlign="center">
           {coffee?.name}
         </Heading>
         <Text color="gray.500" fontSize="0.875rem" textAlign="center">
@@ -77,9 +88,13 @@ export function CoffeeBox({ coffee }: CoffeeBoxProps) {
         </Box>
 
         <ButtonGroup>
-          <AmountInput />
+          <AmountInput
+            value={amount}
+            onChange={(value) => setAmount((oldAmount) => oldAmount + value)}
+          />
 
           <Button
+            onClick={() => onAdd(data)}
             bg="purple.300"
             _hover={{
               bg: "purple.200",

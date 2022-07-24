@@ -6,3 +6,7 @@ export interface Coffee {
   img: string;
   types: string[];
 }
+
+export interface Cart extends Coffee {
+  amount: number;
+}

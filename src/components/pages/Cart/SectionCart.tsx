@@ -1,7 +1,19 @@
 import { CoffeeMinimalBox } from "@/components/shared/CoffeeMinimalBox";
+import { useCart } from "@/hooks/useCart";
 import { VStack, Heading, HStack, Text, Button } from "@chakra-ui/react";
 
 export function SectionCart() {
+  const { data } = useCart();
+
+  const totalPrice = new Intl.NumberFormat("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+  }).format(
+    data
+      .map((item) => item.amount * item.value)
+      .reduce((acc, price) => acc + price, 0)
+  );
+
   return (
     <VStack as="section" flex="1" spacing="15px" align="start">
       <Heading fontSize="1.125rem">Cafés selecionados</Heading>
@@ -14,8 +26,9 @@ export function SectionCart() {
         p={10}
         borderRadius="6px 44px"
       >
-        <CoffeeMinimalBox />
-        <CoffeeMinimalBox />
+        {data.map((cartItem) => (
+          <CoffeeMinimalBox key={cartItem.id} data={cartItem} />
+        ))}
 
         <VStack w="100%">
           <HStack justify="space-between" w="100%">
@@ -23,7 +36,7 @@ export function SectionCart() {
               Total de itens
             </Text>
             <Text fontSize="0.87rem" fontWeight="400" color="gray.600">
-              R$ 29,70
+              {totalPrice}
             </Text>
           </HStack>
 
@@ -32,7 +45,7 @@ export function SectionCart() {
               Entrega
             </Text>
             <Text fontSize="0.87rem" fontWeight="400" color="gray.600">
-              R$ 29,70
+              {totalPrice}
             </Text>
           </HStack>
 
@@ -41,7 +54,7 @@ export function SectionCart() {
               Total
             </Text>
             <Text fontSize="1.25rem" fontWeight="700">
-              R$ 29,70
+              {totalPrice}
             </Text>
           </HStack>
         </VStack>
