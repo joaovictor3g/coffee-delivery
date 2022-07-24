@@ -1,16 +1,13 @@
-# Template Next.js + Chakra UI
+# Coffee Delivery
 
-## Project
+<img src="/.github/assets/Capa.png">
 
-- This project has proposite to agilize the first steps creating new apps with next and chakra ui.
-- Cypress setup.
+# Sobre o projeto
 
-## How to use?
+Aplicação desenvolvida como desafio do Ignite.
 
-```bash
-# with npx
-npx create-next-app teste-template --example https://github.com/joaovictor3g/nextjs-chakra-template
+# Tecnologias
 
-#with yarn
-yarn create next-app teste-template --example https://github.com/joaovictor3g/nextjs-chakra-template
-```
+- React
+- Next
+- Chakra UI
