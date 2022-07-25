@@ -7,7 +7,7 @@ module.exports = () => {
         value: 9.9,
         types: ["Tradicional"],
         description: "O tradicional café feito com água quente e grãos moídos",
-        img: "",
+        img: "https://i.ibb.co/9yYrBvy/Type-Expresso.png",
       },
       {
         id: 2,
@@ -15,7 +15,7 @@ module.exports = () => {
         value: 9.9,
         types: ["Tradicional"],
         description: "Expresso diluído, menos intenso que o tradicional",
-        img: "",
+        img: "https://i.ibb.co/gtwnMb8/Type-Americano.png",
       },
       {
         id: 3,
@@ -23,7 +23,7 @@ module.exports = () => {
         value: 9.9,
         types: ["Tradicional"],
         description: "Café expresso tradicional com espuma cremosa",
-        img: "",
+        img: "https://i.ibb.co/b3MN3Rm/Type-Expresso-Cremoso.png",
       },
       {
         id: 4,
@@ -31,7 +31,7 @@ module.exports = () => {
         value: 9.9,
         types: ["Tradicional", "Gelado"],
         description: "Bebida preparada com café expresso e cubos de gelo",
-        img: "",
+        img: "https://i.ibb.co/5GmrH4M/Type-Caf-Gelado.png",
       },
       {
         id: 5,
@@ -39,7 +39,7 @@ module.exports = () => {
         value: 9.9,
         types: ["Tradicional", "Com leite"],
         description: "Meio a meio de expresso tradicional com leite vaporizado",
-        img: "",
+        img: "https://i.ibb.co/sgNNrCQ/Type-Caf-com-Leite.png",
       },
       {
         id: 6,
@@ -48,7 +48,7 @@ module.exports = () => {
         types: ["Tradicional", "Com leite"],
         description:
           "Uma dose de café expresso com o dobro de leite e espuma cremosa",
-        img: "",
+        img: "https://i.ibb.co/m4gg54n/Type-Latte.png",
       },
       {
         id: 7,
@@ -57,7 +57,7 @@ module.exports = () => {
         types: ["Tradicional", "Com leite"],
         description:
           "Bebida com canela feita de doses iguais de café, leite e espuma",
-        img: "",
+        img: "https://i.ibb.co/Xsyvwk9/Type-Capuccino.png",
       },
       {
         id: 8,
@@ -66,7 +66,7 @@ module.exports = () => {
         types: ["Tradicional", "Com leite"],
         description:
           "Café expresso misturado com um pouco de leite quente e espuma",
-        img: "",
+        img: "https://i.ibb.co/4JKRm04/Type-Macchiato.png",
       },
       {
         id: 9,
@@ -75,7 +75,7 @@ module.exports = () => {
         types: ["Tradicional", "Com leite"],
         description:
           "Café expresso com calda de chocolate, pouco leite e espuma",
-        img: "",
+        img: "https://i.ibb.co/KGS74Pd/Type-Mochaccino.png",
       },
       {
         id: 10,
@@ -84,7 +84,7 @@ module.exports = () => {
         types: ["Especial", "Com leite"],
         description:
           "Bebida feita com chocolate dissolvido no leite quente e café",
-        img: "",
+        img: "https://i.ibb.co/jJY1wvc/Type-Chocolate-Quente.png",
       },
       {
         id: 11,
@@ -93,7 +93,7 @@ module.exports = () => {
         types: ["Especial", "Alcoolico", "Gelado"],
         description:
           "Drink gelado de café expresso com rum, creme de leite e hortelã",
-        img: "",
+        img: "https://i.ibb.co/xYLrSxG/Type-Cubano.png",
       },
       {
         id: 12,
@@ -101,7 +101,7 @@ module.exports = () => {
         value: 9.9,
         types: ["Especial"],
         description: "Bebida adocicada preparada com café e leite de coco",
-        img: "",
+        img: "https://i.ibb.co/jhG23pP/Type-Havaiano.png",
       },
       {
         id: 13,
@@ -109,7 +109,7 @@ module.exports = () => {
         value: 9.9,
         types: ["Especial"],
         description: "Bebida preparada com grãos de café árabe e especiarias",
-        img: "",
+        img: "https://i.ibb.co/b6QkyCZ/Type-rabe.png",
       },
       {
         id: 14,
@@ -118,7 +118,7 @@ module.exports = () => {
         types: ["Especial", "Alcoolico"],
         description:
           "Bebida a base de café, uísque irlandês, açúcar e chantilly",
-        img: "",
+        img: "https://i.ibb.co/LzPYDpH/Type-Irland-s.png",
       },
     ],
   };

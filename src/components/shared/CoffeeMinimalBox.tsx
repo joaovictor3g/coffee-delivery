@@ -23,7 +23,7 @@ export function CoffeeMinimalBox({ data }: CoffeeMinimanlBoxProps) {
   return (
     <VStack w="100%">
       <Flex gap="10px" mb="30px" w="100%">
-        <Image src="/Coffee.svg" alt="Cafe" w="64px" h="64px" />
+        <Image src={data.img} alt={data.name} w="64px" h="64px" />
         <Box w="100%">
           <Flex justify="space-between" mb="10px">
             <Text fontWeight="700" fontSize="1rem" color="gray.700">

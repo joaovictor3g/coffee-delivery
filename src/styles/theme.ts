@@ -7,14 +7,18 @@ const config: ThemeConfig = {
 };
 
 export const theme = extendTheme({
-  config,
   colors,
+  config,
   fonts: {
     body: `"Roboto", sans-serif`,
     heading: `"Baloo 2", sans-serif`,
   },
   styles: {
-    global: {},
+    global: {
+      body: {
+        bg: "#ffffff",
+      },
+    },
   },
   components: {
     Input: {

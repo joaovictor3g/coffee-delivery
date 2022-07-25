@@ -44,7 +44,7 @@ export function CoffeeBox({ coffee }: CoffeeBoxProps) {
       justify="space-between"
       position="relative"
     >
-      <Image src="/Coffee.svg" alt="Cafe expresso" mt="-40px" />
+      <Image src={coffee.img} alt={coffee.name} mt="-40px" />
       <HStack spacing={1}>
         {coffee?.types.map((type) => (
           <Box
