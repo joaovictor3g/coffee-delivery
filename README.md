@@ -25,8 +25,8 @@ cd coffee-delivery
 yarn || npm i
 
 # Rode o fake server
-yarn server
+yarn server || npm run server
 
 # Rode o projeto
-yarn dev
+yarn dev || npm run dev
 ```
