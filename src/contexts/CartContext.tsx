@@ -1,6 +1,7 @@
 import { Cart } from "@/@types";
 import { get, set } from "@/utils/localStorage";
 import { createContext, ReactNode, useEffect, useState } from "react";
+import produce from "immer";
 
 interface CartContextProviderProps {
   children: ReactNode;
@@ -20,20 +21,29 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
   const [data, setData] = useState<Cart[]>([]);
 
   function onAdd(cartItem: Cart) {
-    const alreadyExists = data.find((d) => d.id === cartItem.id);
-    if (alreadyExists) {
-      alreadyExists.amount = cartItem.amount;
-    } else {
-      const cartItems = [...data, cartItem];
-      setData(cartItems);
-      set(KEY, cartItems);
-    }
+    setData(
+      produce((draft) => {
+        const alreadyExists = draft.find((d) => d.id === cartItem.id);
+        if (alreadyExists) {
+          alreadyExists.amount += cartItem.amount;
+        } else {
+          draft.push(cartItem);
+        }
+        set(KEY, draft);
+      })
+    );
   }
 
   function onRemove(cartItem: Cart) {
     const newData = data.filter((d) => d.id !== cartItem.id);
     setData(newData);
     set(KEY, newData);
+  }
+
+  function isZeroAmount(cartItem: Cart) {
+    const nonZeroData =
+      (data.find((d) => d.id === cartItem.id)?.amount ?? 0) <= 0;
+    return nonZeroData;
   }
 
   useEffect(() => {

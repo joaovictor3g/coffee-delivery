@@ -1,8 +1,20 @@
-import { Button, ButtonGroup, Flex, Image, Text, Link } from "@chakra-ui/react";
+import {
+  Button,
+  ButtonGroup,
+  Flex,
+  Image,
+  Text,
+  Link,
+  Box,
+} from "@chakra-ui/react";
 import { MapPin, ShoppingCart } from "phosphor-react";
 import NextLink from "next/link";
+import { useCart } from "@/hooks/useCart";
 
 export function Header() {
+  const { data } = useCart();
+  const totalItens = data.length;
+
   return (
     <Flex w="100%" justify="space-between">
       <NextLink href="/" passHref>
@@ -29,8 +41,26 @@ export function Header() {
             borderRadius="6px"
             w="38px"
             h="38px"
+            position="relative"
           >
             <ShoppingCart size={24} weight="fill" />
+
+            <Box
+              position="absolute"
+              bg="yellow.200"
+              w="20px"
+              h="20px"
+              borderRadius="50%"
+              top="-10px"
+              right="-5px"
+              display="flex"
+              alignItems="center"
+              justifyContent="center"
+            >
+              <Text fontWeight="700" fontSize="0.75rem" color="white">
+                {totalItens}
+              </Text>
+            </Box>
           </Link>
         </NextLink>
       </ButtonGroup>

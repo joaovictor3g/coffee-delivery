@@ -12,7 +12,7 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { ShoppingCart } from "phosphor-react";
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { AmountInput } from "./AmountInput";
 
 interface CoffeeBoxProps {
@@ -21,14 +21,16 @@ interface CoffeeBoxProps {
 
 export function CoffeeBox({ coffee }: CoffeeBoxProps) {
   const { onAdd, data: cartData } = useCart();
-  const [amount, setAmount] = useState(
-    cartData.find((data) => data.id === coffee.id)?.amount ?? 0
-  );
+  const [amount, setAmount] = useState(0);
 
   const data = {
     ...coffee,
     amount,
   };
+
+  useEffect(() => {
+    setAmount(cartData.find((data) => data.id === coffee.id)?.amount ?? 0);
+  }, [cartData]);
 
   return (
     <VStack
@@ -97,8 +99,11 @@ export function CoffeeBox({ coffee }: CoffeeBoxProps) {
             onClick={() => onAdd(data)}
             bg="purple.300"
             _hover={{
-              bg: "purple.200",
+              "&:not(:disabled)": {
+                bg: "purple.200",
+              },
             }}
+            disabled={amount === 0}
           >
             <ShoppingCart weight="fill" color="white" size={30} />
           </Button>

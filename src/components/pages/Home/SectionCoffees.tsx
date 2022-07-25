@@ -14,7 +14,7 @@ export function SectionCoffees({ coffees }: SectionCoffeesProps) {
       <Flex
         flexWrap="wrap"
         gap="32px"
-        justify="space-between"
+        justify={["flex-start"]}
         w="100%"
         mt="50px"
       >

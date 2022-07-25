@@ -11,7 +11,7 @@ const characteristics = [
     icon: () => <Cart />,
   },
   {
-    id: 3,
+    id: 2,
     text: "Embalagem mantém o café intacto",
     icon: () => <Pack />,
   },

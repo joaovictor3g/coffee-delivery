@@ -22,6 +22,7 @@ export function AmountInput({ onChange, value }: AmountInputProps) {
         p={0}
         minW="initial"
         onClick={() => onChange(-1)}
+        disabled={value === 0}
       >
         {"-"}
       </Button>
