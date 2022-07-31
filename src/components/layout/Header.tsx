@@ -10,10 +10,13 @@ import {
 import { MapPin, ShoppingCart } from "phosphor-react";
 import NextLink from "next/link";
 import { useCart } from "@/hooks/useCart";
+import { useGeoLocation } from "@/hooks/useGeoLocation";
 
 export function Header() {
   const { data } = useCart();
   const totalItens = data.length;
+
+  const { location } = useGeoLocation();
 
   return (
     <Flex w="100%" justify="space-between">
@@ -27,7 +30,7 @@ export function Header() {
         <Button bg="purple.100" color="purple.300">
           <MapPin size={20} weight="fill" />
           <Text fontSize="0.875rem" lineHeight="130%" fontWeight="400">
-            Porto Alegre, RS
+            {location}
           </Text>
         </Button>
 
