@@ -3,6 +3,8 @@ import { useCart } from "@/hooks/useCart";
 import { VStack, Heading, HStack, Text, Button } from "@chakra-ui/react";
 import Router from "next/router";
 
+interface SectionCartProps {}
+
 const DELIVERY_PRICE = 3.3;
 
 const priceFormat = (price: number) =>

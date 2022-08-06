@@ -1,20 +1,37 @@
+import { Input } from "@/components/shared/Form/Input";
 import { PaymentButton } from "@/components/shared/PaymentButton";
 import {
   VStack,
   Heading,
   Flex,
   Box,
-  Input,
   HStack,
   ButtonGroup,
   Text,
   Icon,
+  Button,
 } from "@chakra-ui/react";
 import { MapPinLine, CurrencyDollar } from "phosphor-react";
-import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Address, addressSchema } from "@/schemas/address";
 
-export function SectionForm() {
-  const [selectedPayment, setSelectedPayment] = useState("");
+interface SectionFormProps {
+  onFillAddress(fields: Address): void;
+  onSelectPayment(payment: string): void;
+  payment: string;
+}
+
+export function SectionForm({
+  onFillAddress,
+  onSelectPayment,
+  payment,
+}: SectionFormProps) {
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = useForm<Address>({ resolver: zodResolver(addressSchema) });
 
   return (
     <VStack as="section" maxW="640px" w="100%" spacing="15px" align="start">
@@ -40,33 +57,63 @@ export function SectionForm() {
           </Box>
         </Flex>
 
-        <VStack as="form" spacing={4} w="100%" align="start">
-          <Input placeholder="CEP" variant="address" maxW="200px" w="100%" />
-          <Input placeholder="Rua" variant="address" />
+        <VStack
+          as="form"
+          onSubmit={handleSubmit(onFillAddress)}
+          spacing={4}
+          w="100%"
+          align="start"
+        >
+          <Input
+            placeholder="CEP"
+            maxW="200px"
+            w="100%"
+            error={errors.cep}
+            {...register("cep")}
+          />
+          <Input
+            placeholder="Rua"
+            error={errors.street}
+            {...register("street")}
+          />
           <HStack w="100%" spacing={4}>
             <Input
               placeholder="Numero"
-              variant="address"
               maxW="200px"
               w="100%"
+              error={errors.number}
+              {...register("number")}
             />
-            <Input placeholder="Complemento" variant="address" flex="1" />
+            <Input
+              placeholder="Complemento"
+              flex="1"
+              error={errors.complement}
+              {...register("complement")}
+            />
           </HStack>
           <HStack w="100%" spacing={4}>
             <Input
               placeholder="Bairro"
-              variant="address"
               maxW="200px"
               w="100%"
+              error={errors.neighbor}
+              {...register("neighbor")}
             />
             <Input
               placeholder="Cidade"
-              variant="address"
               maxW="276px"
               w="100%"
+              error={errors.city}
+              {...register("city")}
             />
-            <Input placeholder="UF" variant="address" flex="1" />
+            <Input
+              placeholder="UF"
+              flex="1"
+              error={errors.uf}
+              {...register("uf")}
+            />
           </HStack>
+          <Button type="submit">Submit</Button>
         </VStack>
       </VStack>
 
@@ -92,26 +139,27 @@ export function SectionForm() {
 
         <ButtonGroup w="100%" justifyContent="space-between">
           <PaymentButton
+            type="submit"
             w="33%"
             paymentType="credit"
-            onClick={() => setSelectedPayment("credit")}
-            active={selectedPayment === "credit"}
+            onClick={() => onSelectPayment("credit")}
+            active={payment === "credit"}
           >
             Cartão de crédito
           </PaymentButton>
           <PaymentButton
             w="33%"
             paymentType="debit"
-            onClick={() => setSelectedPayment("debit")}
-            active={selectedPayment === "debit"}
+            onClick={() => onSelectPayment("debit")}
+            active={payment === "debit"}
           >
             Cartão de débito
           </PaymentButton>
           <PaymentButton
             w="33%"
             paymentType="money"
-            onClick={() => setSelectedPayment("money")}
-            active={selectedPayment === "money"}
+            onClick={() => onSelectPayment("money")}
+            active={payment === "money"}
           >
             Dinheiro
           </PaymentButton>

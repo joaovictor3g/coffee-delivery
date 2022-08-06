@@ -34,6 +34,9 @@ export const theme = extendTheme({
             _focus: {
               borderColor: "yellow.200",
             },
+            _invalid: {
+              borderColor: "red.500",
+            },
           },
         },
       },
